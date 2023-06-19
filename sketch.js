@@ -6,7 +6,8 @@ var Engine = Matter.Engine,
   Runner = Matter.Runner,
   Bodies = Matter.Bodies,
   Composite = Matter.Composite;
-
+var xPlus =70;
+var yPlus = 70;
 var engine;
 var runner;
 var world;
@@ -70,6 +71,7 @@ function preload() {
 }
 function setup() {
   mapCanvas = createCanvas(1728, 969);
+  mapCanvas.position( xPlus,yPlus);
   var wrate = 1728 / 1920;
   var hrate = 969 / 1080;
   var roadHeight = 30;
@@ -81,25 +83,25 @@ function setup() {
   Matter.Runner.run(runner, engine);
   //텍스트 인풋
   input = createInput();
-  input.position(1728 - 420, 20);
+  input.position(1728 - 420-50+4+xPlus-10, 20+yPlus-8);
   //저장하기보튼
   button = createButton(" 저장하기 ");
   button.style("font-size", "15px");
   button.style("background-color", "#000000");
   button.style("border", "none");
   button.style("color", "white");
-  button.position(1728 - 265 + 5, 20);
+  button.position(1450+xPlus-10, 20+yPlus-8);
   button.mousePressed(savefun);
   // 불러오기 버튼
   loadButton = createButton(" 불러오기 ");
-  loadButton.position(1728 - 95 + 10, 20);
+  loadButton.position(1728 - 95 + 20+xPlus-10, 20+yPlus-8);
   loadButton.style("font-size", "15px");
   loadButton.style("background-color", "ffffff");
   loadButton.style("border", "none");
   loadButton.mousePressed(loadfun); // 불러오기 버튼
   // 불러오기 버튼
   resetButton = createButton(" 다시그리기 ");
-  resetButton.position(1728 - 160 - 10, 20);
+  resetButton.position(1728 - 160 - 10+xPlus-10, 20+yPlus-8);
   resetButton.style("font-size", "15px");
   resetButton.style("background-color", "ffffff");
   resetButton.style("border", "none");
@@ -132,19 +134,19 @@ function setup() {
   }
   console.log(saves);
   mainTitle = createElement("h2", "커스텀 지도 만들기");
-  mainTitle.position(20, 7);
+  mainTitle.position(20+xPlus-10, 7+yPlus-10);
   askElement = createElement(
     "p",
-    "원하는 요소들을 원하는 만큼 눌러 </br>오로지 내가 원하는 것들로만 </br>이루어진 지도를 만들어보세요!"
+    "원하는 요소를 원하는 만큼 눌러 </br>오로지 내가 원하는 것들로만 </br>이루어진 지도를 만들어보세요!"
   );
-  askElement.position(20, 70);
+  askElement.position(20+xPlus-15, 70+yPlus-10);
   backElement = createElement(
     "p",
     "⬆⬇ 방향키: 아이콘 크기 설정</br>⬅ 방향키: 뒤로가기"
   );
-  backElement.position(20, 160);
+  backElement.position(20+xPlus-10, 160+yPlus-10);
   askElement = createElement("p", "지도의 이름을 지어주세요 :");
-  askElement.position(1728 - 600, 6);
+  askElement.position(1055+xPlus-10,yPlus-4);
   boundaries.push(
     new Boundary(384 * wrate, 154 * hrate, 598 * wrate, roadHeight * hrate, 270)
   );
@@ -627,7 +629,7 @@ function rightBackground() {
   noStroke();
   //strokeWeight(1.2);
   fill("ffffff");
-  rect(1728 - 620, 0, 640, 48);
+  rect(1728 - 700+15, 0, 740, 48);
   if (isLoadClicked == 1) {
     rect(1728 - 200, 41, 200, 17 + saves.length * 20);
     for (var i = 0; i < saves.length; i++) {
@@ -641,9 +643,9 @@ function rightBackground() {
   }
   // if (saves.length > 0) {
   //   for (var i = 0; i < saves.length; i++) {
-  fill(0);
-  text(mouseX, 1000, 200);
-  text(mouseY, 1000, 250);
+ // fill(0);
+  //text(mouseX, 1000, 200);
+  //text(mouseY, 1000, 250);
   //   }
   // }
 }
