@@ -629,32 +629,34 @@ function rightBackground() {
   fill("ffffff");
   rect(1728 - 620, 0, 640, 48);
   if (isLoadClicked == 1) {
-    rect(1728 - 200, 41, 200, 17 + saves.length * 30);
+    rect(1728 - 200, 41, 200, 17 + saves.length * 20);
     for (var i = 0; i < saves.length; i++) {
       textSize(15);
       fill(0);
       noStroke();
       textAlign(RIGHT);
-      text(saves[i].name, 1728 - 40 + 10, 62 + i * 30);
+      text(saves[i].name, 1700, 60 + i * 20);
       textAlign(CENTER);
     }
   }
   // if (saves.length > 0) {
   //   for (var i = 0; i < saves.length; i++) {
-  //     text(saves[i].rects.length, 1000, 200 + i * 50);
+  fill(0);
+  text(mouseX, 1000, 200);
+  text(mouseY, 1000, 250);
   //   }
   // }
 }
 
 function loadBackgroundClicked() {
-  if (mouseX > 1728 - 620 && mouseX < 1728 - 20 && mouseY > 1 && mouseY < 41) {
+  if (mouseX > 1728 - 620 && mouseX < 1728 && mouseY > 1 && mouseY < 41) {
     return true;
   }
   if (
     mouseX > 1728 - 200 &&
-    mouseX < 1728 - 20 &&
-    mouseY > 41 &&
-    mouseY < 58 + saves.length * 17
+    mouseX < 1728 &&
+    mouseY > 0 &&
+    mouseY < 62 + saves.length * 17
   ) {
     return true;
   }
@@ -664,8 +666,8 @@ function loadBackgroundClicked() {
 function loadButtonClicked(i) {
   if (
     mouseX > 1550 &&
-    mouseX < 1688 &&
-    mouseY > 52 + i * 17 &&
+    mouseX < 1700 &&
+    mouseY > 49 + i * 17 &&
     mouseY < 62 + i * 17
   ) {
     return true;
