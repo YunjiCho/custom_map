@@ -656,7 +656,7 @@ function loadBackgroundClicked() {
     mouseX > 1728 - 200 &&
     mouseX < 1728 &&
     mouseY > 0 &&
-    mouseY < 62 + saves.length * 17
+    mouseY < 62 + saves.length * 20
   ) {
     return true;
   }
@@ -667,8 +667,8 @@ function loadButtonClicked(i) {
   if (
     mouseX > 1550 &&
     mouseX < 1700 &&
-    mouseY > 49 + i * 17 &&
-    mouseY < 62 + i * 17
+    mouseY > 49 + i * 20 &&
+    mouseY < 62 + i * 20
   ) {
     return true;
   }
